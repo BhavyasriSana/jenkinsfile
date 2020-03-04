@@ -5,29 +5,13 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing'
-            }
-        }
         stage('Deploy') {
             steps {
                 Build()
+		    UserDetails(JSON)
 		  //  testbuild()
             }
 	}
-	    
-	    
-	    stage('deliver'){
-			steps{
-				username()
-			}
-		}
     }
 }
    
